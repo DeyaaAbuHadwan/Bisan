@@ -3,16 +3,17 @@ package DriverClasses;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverBrowsers {
 	private WebDriver driver;
 
 	public DriverBrowsers(String browser) {
 		switch (browser) {
-//		case "FireFox":
-//			System.setProperty("webdriver.gecko.driver", "./src/test/resources/Browser drivers/geckodriver.exe");
-//			driver = new FirefoxDriver();
-//			break;
+		case "FireFox":
+			System.setProperty("webdriver.gecko.driver", "./src/test/resources/Browser drivers/geckodriver.exe");
+			driver = new FirefoxDriver();
+			break;
 		case "Chrome":
 			System.setProperty("webdriver.chrome.driver", "./src/test/resources/Browser drivers/chromedriver.exe");
 			driver = new ChromeDriver();
