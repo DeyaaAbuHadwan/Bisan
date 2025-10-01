@@ -2,8 +2,8 @@ pipeline {
   agent any
 
   tools {
-    jdk 'JDK17'      // نفس الاسم الذي عرّفته في Tools
-    maven 'M3'       // نفس الاسم الذي عرّفته في Tools
+    jdk 'JDK17'    // نفس الاسم المعرّف في Manage Jenkins > Tools
+    maven 'M3'     // نفس الاسم المعرّف في Tools
   }
 
   options {
@@ -13,8 +13,8 @@ pipeline {
   }
 
   environment {
-    ALLURE_COMMANDLINE = 'allure29'   // نفس اسم أداة Allure في Tools
-    TESTNG_SUITE = 'testng.xml'       // موجود عندك في جذر الريبو
+    ALLURE_COMMANDLINE = 'allure29'   // اسم أداة Allure في Tools (لو مستخدم خطوة allure أدناه)
+    TESTNG_SUITE = 'testng.xml'
     MAVEN_OPTS = '-Dmaven.test.failure.ignore=true'
   }
 
@@ -22,29 +22,29 @@ pipeline {
     stage('Checkout') {
       steps {
         checkout scm
-        bat 'rm -rf target || true'
+        // حذف target بأسلوب Windows
+        bat 'if exist target rmdir /S /Q target'
       }
     }
 
     stage('Build & Test') {
       steps {
-        // نشغّل TestNG عبر Surefire باستخدام ملف السويت
-        bat 'mvn -B -U clean test -Dsurefire.printSummary=true -DsuiteXmlFile=${TESTNG_SUITE}'
+        // تشغيل Maven على Windows
+        bat 'mvn -v'
+        bat 'mvn -B -U clean test -Dsurefire.printSummary=true -DsuiteXmlFile=%TESTNG_SUITE%'
       }
     }
 
     stage('Archive Results') {
       steps {
-        // خزّن التقارير الخام لمرجعتها لاحقاً
         archiveArtifacts artifacts: 'target/surefire-reports/**/*, allure-results/**/*', fingerprint: true, onlyIfSuccessful: false
-        // قراءة نتائج TestNG كـ JUnit في Jenkins
         junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'
       }
     }
 
-    stage('Publibat Allure Report') {
+    stage('Publish Allure Report') {
       steps {
-        // نشر تقرير Allure من المجلد الجذري allure-results/
+        // يتطلب Allure Jenkins Plugin + Tool باسم ALLURE_COMMANDLINE
         allure([
           includeProperties: false,
           jdk: '',
