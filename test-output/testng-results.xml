@@ -2,25 +2,53 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-10-01T16:09:17 EEST" name="Suite" finished-at="2025-10-01T16:09:33 EEST" duration-ms="15363">
+  <suite started-at="2025-10-01T17:00:03 EEST" name="Default suite" finished-at="2025-10-01T17:00:15 EEST" duration-ms="11527">
     <groups>
     </groups>
-    <test started-at="2025-10-01T16:09:17 EEST" name="Test" finished-at="2025-10-01T16:09:33 EEST" duration-ms="15363">
-      <class name="TestCases.TestItem">
-        <test-method is-config="true" signature="before()[pri:0, instance:TestCases.TestItem@35432107]" started-at="2025-10-01T16:09:17 EEST" name="before" finished-at="2025-10-01T16:09:23 EEST" duration-ms="5407" status="PASS">
+    <test started-at="2025-10-01T17:00:03 EEST" name="Default test" finished-at="2025-10-01T17:00:15 EEST" duration-ms="11527">
+      <class name="TestCases.SalesTest">
+        <test-method is-config="true" signature="before()[pri:0, instance:TestCases.SalesTest@673be18f]" started-at="2025-10-01T17:00:03 EEST" name="before" finished-at="2025-10-01T17:00:06 EEST" duration-ms="2627" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- before -->
-        <test-method signature="testA()[pri:0, instance:TestCases.TestItem@35432107]" started-at="2025-10-01T16:09:23 EEST" name="testA" finished-at="2025-10-01T16:09:31 EEST" duration-ms="8477" status="FAIL">
-          <exception class="java.lang.NullPointerException">
+        <test-method signature="testA()[pri:0, instance:TestCases.SalesTest@673be18f]" started-at="2025-10-01T17:00:06 EEST" name="testA" finished-at="2025-10-01T17:00:14 EEST" duration-ms="7437" status="FAIL">
+          <exception class="org.openqa.selenium.JavascriptException">
             <message>
-              <![CDATA[Cannot invoke "org.openqa.selenium.WebElement.getAttribute(String)" because the return value of "Classes.DriverMethods._getActiveWindow()" is null]]>
+              <![CDATA[javascript error: Cannot read properties of null (reading 'setValue')
+  (Session info: chrome=141.0.7390.55)
+Build info: version: '4.23.0', revision: '4df0a231af'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e2e7965bb8a8cddccac8d0acfec53f8f, executeScript {script=Ext.getCmp('grid-1696').getPlugin('cellplugin').activeEditor.setValue("10");, args=[]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.55, chrome: {chromedriverVersion: 141.0.7390.54 (b95610d5c4a5..., userDataDir: C:\Users\DEDA2~1.ABU\AppDat...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63934}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63934/devtoo..., se:cdpVersion: 141.0.7390.55, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e2e7965bb8a8cddccac8d0acfec53f8f]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebElement.getAttribute(String)" because the return value of "Classes.DriverMethods._getActiveWindow()" is null
-at Classes.DriverMethods.waitForCurrentWindow(DriverMethods.java:113)
-at Pages.LogIn.logIn(LogIn.java:27)
-at TestCases.TestItem.testA(TestItem.java:40)
+              <![CDATA[org.openqa.selenium.JavascriptException: javascript error: Cannot read properties of null (reading 'setValue')
+  (Session info: chrome=141.0.7390.55)
+Build info: version: '4.23.0', revision: '4df0a231af'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.10'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e2e7965bb8a8cddccac8d0acfec53f8f, executeScript {script=Ext.getCmp('grid-1696').getPlugin('cellplugin').activeEditor.setValue("10");, args=[]}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 141.0.7390.55, chrome: {chromedriverVersion: 141.0.7390.54 (b95610d5c4a5..., userDataDir: C:\Users\DEDA2~1.ABU\AppDat...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:63934}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63934/devtoo..., se:cdpVersion: 141.0.7390.55, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e2e7965bb8a8cddccac8d0acfec53f8f
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:527)
+at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:465)
+at Classes.DriverMethods.excuteJS(DriverMethods.java:62)
+at Classes.DriverMethods.setCell(DriverMethods.java:182)
+at SalesInvoice.OrderItemSales.fillTab(OrderItemSales.java:22)
+at TestCases.SalesTest.testA(SalesTest.java:49)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -51,15 +79,15 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+          </exception> <!-- org.openqa.selenium.JavascriptException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testA -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:TestCases.TestItem@35432107]" started-at="2025-10-01T16:09:31 EEST" name="afterTest" finished-at="2025-10-01T16:09:33 EEST" duration-ms="1366" status="PASS">
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:TestCases.SalesTest@673be18f]" started-at="2025-10-01T17:00:14 EEST" name="afterTest" finished-at="2025-10-01T17:00:15 EEST" duration-ms="1375" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- TestCases.TestItem -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+      </class> <!-- TestCases.SalesTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

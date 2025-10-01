@@ -24,8 +24,8 @@ public class SalesTest {
 	DriverMethods method;
 	WebDriver driver;
 
-	String[] itemArr = { "AUTOMAT20", "AUTOMAT20" };
-	String[] unitArr = { "PCS", "11" };
+	String[] itemArr = { "000000001", "000000002" };
+	String[] unitArr = { "PCS", "PCS" };
 	String[] quantityArr = { "10", "10" };
 	String[] priceArr = { "15", "20" };
 
@@ -44,7 +44,7 @@ public class SalesTest {
 		method.click(By.name("sales"), 10);
 		method.click(By.name("invoice"), 10);
 		MainSaleInfo salesInfo = new MainSaleInfo(method);
-		salesInfo.fill_Info("CONTAC7", "01", "0001", "011", "004", "00", "000");
+		salesInfo.fill_Info("0000002", "01", "00MW", "001", "", "00", "000");
 		OrderItemSales itemTable = new OrderItemSales(method);
 		itemTable.fillTab(itemArr, unitArr, priceArr, quantityArr);
 		method.validateFieldValue(By.xpath(".//*[@name='totalNet' and @role='textbox']"), "406.00 ");
