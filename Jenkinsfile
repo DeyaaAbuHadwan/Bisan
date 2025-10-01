@@ -22,14 +22,14 @@ pipeline {
     stage('Checkout') {
       steps {
         checkout scm
-        sh 'rm -rf target || true'
+        bat 'rm -rf target || true'
       }
     }
 
     stage('Build & Test') {
       steps {
         // نشغّل TestNG عبر Surefire باستخدام ملف السويت
-        sh 'mvn -B -U clean test -Dsurefire.printSummary=true -DsuiteXmlFile=${TESTNG_SUITE}'
+        bat 'mvn -B -U clean test -Dsurefire.printSummary=true -DsuiteXmlFile=${TESTNG_SUITE}'
       }
     }
 
@@ -42,7 +42,7 @@ pipeline {
       }
     }
 
-    stage('Publish Allure Report') {
+    stage('Publibat Allure Report') {
       steps {
         // نشر تقرير Allure من المجلد الجذري allure-results/
         allure([
