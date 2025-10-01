@@ -10,17 +10,20 @@
   <packaging>jar</packaging>
 
   <properties>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <!-- استخدم Java 17 ليتوافق مع بيئتك -->
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <build>
     <pluginManagement>
       <plugins>
+        <!-- Surefire حديث ومرن مع JDKs جديدة -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.22.2</version>
+          <version>3.2.5</version>
           <configuration>
             <suiteXmlFiles>
               <suiteXmlFile>testng.xml</suiteXmlFile>
@@ -32,24 +35,36 @@
   </build>
 
   <dependencies>
+    <!-- Selenium 4: أساسي -->
     <dependency>
-      <groupId>io.appium</groupId>
-      <artifactId>java-client</artifactId>
-      <version>4.1.2</version>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>4.23.0</version>
     </dependency>
 
+    <!-- WebDriverManager: يجلب chromedriver المناسب تلقائيًا -->
+    <dependency>
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>5.9.2</version>
+    </dependency>
+
+    <!-- Allure TestNG (ممكن تبقي على نسختك، أو حدّث لاحقًا) -->
     <dependency>
       <groupId>io.qameta.allure</groupId>
       <artifactId>allure-testng</artifactId>
       <version>2.19.0</version>
     </dependency>
 
+    <!-- TestNG -->
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
-      <version>7.6.1</version>
+      <version>7.10.2</version>
+      <scope>test</scope>
     </dependency>
 
+    <!-- مكتباتك الأخرى (اختياري إبقائها كما هي) -->
     <dependency>
       <groupId>com.opencsv</groupId>
       <artifactId>opencsv</artifactId>
@@ -61,5 +76,16 @@
       <artifactId>commons-io</artifactId>
       <version>2.6</version>
     </dependency>
+
+    <!-- ملاحظة: عميل Appium 4.1.2 قديم جدًا.
+         إذا عندك اختبارات Web فقط، احذفه.
+         إذا عندك Mobile/Appium فعلاً، حدّثه لاحقًا إلى إصدار حديث. -->
+    <!--
+    <dependency>
+      <groupId>io.appium</groupId>
+      <artifactId>java-client</artifactId>
+      <version>9.2.2</version>
+    </dependency>
+    -->
   </dependencies>
 </project>

@@ -32,7 +32,7 @@ public class DriverMethods {
 	}
 
 	public WebElement findElement(By by, int time) {
-		WebDriverWait wait = new WebDriverWait(driver, time);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(time));
 		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 		return element;
 	}
