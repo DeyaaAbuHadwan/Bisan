@@ -31,7 +31,7 @@ public class PurchaseTest {
 	public void before() {
 		System.out.println("Test..");
 		method = new DriverMethods("Chrome");
-		method.openLink("https://a50.bisan.com/login.html?tip=false");
+		method.openLink("http://qa.bisan.com:4440/login.html");
 		this.driver = method.getDriver();
 	}
 

@@ -51,9 +51,9 @@ public class TabletTest {
 
 	@Test
 	public void testA() throws InterruptedException, IOException {
-		method.sendKey("account", "demoqalive");
-		method.sendKey("username", "deyaa");
-		method.sendKey("password", "100100b");
+		method.sendKey("account", "demotablet");
+		method.sendKey("username", "admin");
+		method.sendKey("password", "100100aA");
 		method.click("loginBtn");
 		Thread.sleep(15000);
 		method.click("areas");
