@@ -24,7 +24,7 @@ public class LogIn {
 		testMethod.setText(pw, 10, "100100aA");
 		testMethod.click(btn, 10);
 //		testMethod.click(By.name("Yes"), 10);
-		testMethod.waitForCurrentWindow("null1", 5000);
+		testMethod.waitForCurrentWindow("null", 5000);
 	}
 
 	
